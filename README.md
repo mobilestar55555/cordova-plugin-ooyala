@@ -18,8 +18,8 @@ USAGE:
 
 ```javascript
  ooyala.createPlayer(
-     "wzaDkyOnVDlnaTV7ppH7GYvIBbXM", //pcode
-     "12aXY5MTE6sGeOfdhAo_vEaqgajYwfRi",//ecode
+     "xxxx", //pcode
+     "xxxx",//ecode
      "http://www.ooyala.com", //url
      "cordova Ooyala test app",//title
      function(data){

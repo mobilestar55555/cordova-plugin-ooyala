@@ -31,7 +31,7 @@ var app = {
 
             play.addEventListener('click', function() {
                 alert("ooyalo");
-                ooyala.createPlayer("wzaDkyOnVDlnaTV7ppH7GYvIBbXM","12aXY5MTE6sGeOfdhAo_vEaqgajYwfRi","http://www.ooyala.com","cordova Ooyala test app",function(data){
+                ooyala.createPlayer("xxxx","xxxx","http://www.ooyala.com","cordova Ooyala test app",function(data){
                 },
                 function errorHandler(err){
                     console.log(err);
