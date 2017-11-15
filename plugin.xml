@@ -59,6 +59,11 @@
         <source-file src="src/android/AbstractHookActivity.java" target-dir="src/org/apache/cordova/ooyala" />
         <source-file src="src/android/BasicPlaybackVideoPlayerActivity.java" target-dir="src/org/apache/cordova/ooyala" />
         <source-file src="src/android/Ooyala.java" target-dir="src/org/apache/cordova/ooyala" />
+        <source-file src="src/android/layout/list_activity_layout.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/list_activity_list_item.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/player_double_button_layout.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/player_simple_layout.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/player_single_button_layout.xml" target-dir="res/layout" />
         <source-file src="src/android/values/dimens.xml" target-dir="res/values" />
         <source-file src="src/android/values-sw600dp/dimens.xml" target-dir="res/values-sw600dp" />
         <source-file src="src/android/values-sw720dp-land/dimens.xml" target-dir="res/values-sw720dp-land" />
