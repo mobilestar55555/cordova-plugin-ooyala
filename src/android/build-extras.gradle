@@ -11,6 +11,3 @@ dependencies {
     compile(name: 'OoyalaSDK')
 
 }
-
-include ":CordovaLib"
-project(':CastCompanionLibrary').projectDir = new File(settingsDir, './CastCompanionLibrary')
