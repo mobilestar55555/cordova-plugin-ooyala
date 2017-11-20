@@ -120,6 +120,7 @@
         <source-file src="src/android/OoyalaCastSDK.aar" target-dir="libs" />
         <source-file src="src/android/CastCompanionLibrary" target-dir="./" />
 
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
 
         <js-module src="www/ooyala.js" name="ooyala">
             <clobbers target="ooyala" />
