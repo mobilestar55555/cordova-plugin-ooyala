@@ -16,7 +16,15 @@ $ cordova plugin add https://github.com/mobilestar55555/cordova-plugin-ooyala.gi
 USAGE:
 ======
 ```Setting with somethings manually
+in AndroidManifest.xml
+    <application android:name="org.apache.cordova.ooyala.utils.SampleApplication"
+
 in build.gradle
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
