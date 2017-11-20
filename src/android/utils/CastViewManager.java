@@ -10,7 +10,7 @@ import com.ooyala.android.OoyalaPlayer;
 import com.ooyala.android.OoyalaPlayer.State;
 import com.ooyala.android.castsdk.CastManager;
 import com.ooyala.android.item.Video;
-import com.wcn.ftv.R;
+import com.wcn.fishingtv.R;
 
 /**
  * This is an example of a way to manage the view that is displayed in the player while casting

@@ -12,7 +12,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.wcn.ftv.R;
+import com.wcn.fishingtv.R;
 
 import android.database.Cursor;
 import android.provider.CallLog;
@@ -34,7 +34,7 @@ import org.apache.cordova.ooyala.lists.ChromecastListActivity;
 import org.apache.cordova.ooyala.players.ChromecastBarebonesPlayerActivity;
 import org.apache.cordova.ooyala.utils.ChromecastPlayerSelectionOption;
 import org.apache.cordova.ooyala.players.ChromecastPlayerActivity;
-import com.cordova.ooyala.R;
+import com.wcn.fishingtv.R;
 
 import com.google.android.libraries.cast.companionlibrary.widgets.MiniController;
 import com.ooyala.android.castsdk.CastManager;

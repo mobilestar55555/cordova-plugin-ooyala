@@ -23,7 +23,7 @@ import com.ooyala.android.PlayerDomain;
 import com.ooyala.android.castsdk.CastManager;
 import com.ooyala.android.configuration.Options;
 import com.ooyala.android.ui.OoyalaPlayerLayoutController;
-import com.wcn.ftv.R;
+import com.wcn.fishingtv.R;
 import com.ooyala.android.util.SDCardLogcatOoyalaEventsLogger;
 
 import org.apache.cordova.ooyala.utils.CastViewManager;
