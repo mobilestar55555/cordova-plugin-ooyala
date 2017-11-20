@@ -113,8 +113,6 @@
         <source-file src="src/android/layout/main.xml" target-dir="res/layout" />
         <source-file src="src/android/layout/start_view.xml" target-dir="res/layout" />
 
-        <source-file src="src/android/values/strings.xml" target-dir="res/values" />
-
         <source-file src="src/android/drawable/ic_ooyala.png" target-dir="res/drawable" />
         <source-file src="src/android/drawable/shadow7.9.png" target-dir="res/drawable" />
 
