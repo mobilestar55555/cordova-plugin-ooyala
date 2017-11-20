@@ -3,6 +3,7 @@ package org.apache.cordova.ooyala;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +12,33 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.cordova.ooyala.R;
-
-import org.apache.cordova.ooyala.BasicPlaybackVideoPlayerActivity;
+import com.wcn.ftv.R;
 
 import android.database.Cursor;
 import android.provider.CallLog;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.apache.cordova.ooyala.lists.ChromecastListActivity;
+import org.apache.cordova.ooyala.players.ChromecastBarebonesPlayerActivity;
+import org.apache.cordova.ooyala.utils.ChromecastPlayerSelectionOption;
+import org.apache.cordova.ooyala.players.ChromecastPlayerActivity;
+import com.cordova.ooyala.R;
+
+import com.google.android.libraries.cast.companionlibrary.widgets.MiniController;
+import com.ooyala.android.castsdk.CastManager;
+import com.ooyala.android.castsdk.CastOptions;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -32,6 +54,10 @@ public class Ooyala extends CordovaPlugin {
   /**
    * Constructor.
    */
+  private final String NAMESPACE = "urn:x-cast:ooyala";
+  private final String APP_ID = "4172C76F";
+  private MiniController defaultMiniController;
+
   public Ooyala() {
   }
 
@@ -44,6 +70,7 @@ public class Ooyala extends CordovaPlugin {
    */
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
+
   }
 
   /**
@@ -56,19 +83,17 @@ public class Ooyala extends CordovaPlugin {
    */
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     if (action.equals("createPlayer")) {
+
+
       String code = args.getString(0);
       String eCode = args.getString(1);
       String domain = args.getString(2);
-      String title = args.getString(3);
+      //String title1 = args.getString(3);
 
-      Context context=this.cordova.getActivity().getApplicationContext();
+      Context context=this.webView.getContext();
 
-      Intent intent = new Intent(context, BasicPlaybackVideoPlayerActivity.class);
-      intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-      intent.putExtra("embed_code", eCode);
-      intent.putExtra("pcode", code);
-      intent.putExtra("domain", domain);
-      intent.putExtra("selection_name", title);
+
+      Intent intent = new Intent(context, ChromecastListActivity.class);
       this.cordova.getActivity().startActivity(intent);
 
 
@@ -76,9 +101,16 @@ public class Ooyala extends CordovaPlugin {
       r.put("status","Ok");
       callbackContext.success(r);
     }
+    else if(action.equals("initPlayer"))
+    {
+
+
+
+    }
     else {
       return false;
     }
     return true;
   }
+
 }

@@ -1,10 +1,16 @@
-var exec = require('cordova/exec');
-var channel = require('cordova/channel');
+cordova.define("cordova-plugin-ooyala.ooyala", function(require, exports, module) {
 
-module.exports = {
+    var exec = require('cordova/exec');
+    var channel = require('cordova/channel');
 
-    createPlayer: function (code, ecode, url, title, success, error) {
-        exec(success, error, "Ooyala", "createPlayer", [code, ecode, url, title]);
-    },
+    module.exports = {
 
-};
+        createPlayer: function (code, ecode, url, title, success, error) {
+            exec(success, error, "Ooyala", "createPlayer", [code, ecode, url, title]);
+        },
+        initPlayer: function (success, error) {
+            exec(success, error, "Ooyala", "initPlayer", []);
+        },
+    };
+
+});

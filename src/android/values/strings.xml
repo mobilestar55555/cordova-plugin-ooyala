@@ -1,0 +1,9 @@
+<resources>
+  <string name="hello">Hello World, Fishing TV!</string>
+  <string name="media_route_menu_title">Play on..</string>
+  <string name="loading">Loading</string>
+  <string name="castingTo">Casting to %s</string>
+  <string name="app_name">Fishing TV</string>
+  <string name="launcher_name">@string/app_name</string>
+  <string name="activity_name">@string/launcher_name</string>
+</resources>

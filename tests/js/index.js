@@ -30,8 +30,8 @@ var app = {
             var play = document.getElementById('play');
 
             play.addEventListener('click', function() {
-                alert("ooyalo");
-                ooyala.createPlayer("xxxx","xxxx","http://www.ooyala.com","cordova Ooyala test app",function(data){
+            alert("alert");
+                ooyala.createPlayer("c0cTkxOqALQviQIGAHWY5hP0q9gU","Y1ZHB1ZDqfhCPjYYRbCEOz0GR8IsVRm1","http://www.ooyala.com","cordova Ooyala test app",function(data){
                 },
                 function errorHandler(err){
                     console.log(err);
@@ -39,6 +39,19 @@ var app = {
 
                 });
             });
+
+            var init = document.getElementById('init');
+
+                        init.addEventListener('click', function() {
+                        alert("init");
+                            ooyala.initPlayer(function(data){
+                            },
+                            function errorHandler(err){
+                                console.log(err);
+                                alert(JSON.stringify(err));
+
+                            });
+                        });
 
     },
 

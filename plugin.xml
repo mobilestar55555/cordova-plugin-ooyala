@@ -49,25 +49,79 @@
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
-            <activity android:name="org.apache.cordova.ooyala.BasicPlaybackVideoPlayerActivity"
+            <activity android:name="org.apache.cordova.ooyala.lists.ChromecastListActivity"
+            android:launchMode="singleTop"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cordova.ooyala.MainActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            </activity>
+            <activity android:name="org.apache.cordova.ooyala.players.ChromecastPlayerActivity"
+                android:launchMode="singleTop"
+                android:parentActivityName="org.apache.cordova.ooyala.lists.ChromecastListActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize">
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="org.apache.cordova.ooyala.lists.ChromecastListActivity"/>
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                </intent-filter>
+            </activity>
+            <activity android:name="org.apache.cordova.ooyala.players.ChromecastBarebonesPlayerActivity"
                 android:configChanges="keyboardHidden|orientation|screenSize">
             </activity>
+            <receiver android:name="com.google.android.libraries.cast.companionlibrary.remotecontrol.VideoIntentReceiver" >
+                <intent-filter>
+                    <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+                    <action android:name="android.intent.action.MEDIA_BUTTON" />
+                    <action android:name="com.google.android.libraries.cast.companionlibrary.action.toggleplayback" />
+                    <action android:name="com.google.android.libraries.cast.companionlibrary.action.stop" />
+                </intent-filter>
+            </receiver>
+
+            <service
+                android:name="com.google.android.libraries.cast.companionlibrary.notification.VideoCastNotificationService"
+                android:exported="false" >
+                <intent-filter>
+                    <action android:name="com.google.android.libraries.cast.companionlibrary.action.notificationvisibility" />
+                </intent-filter>
+            </service>
+
+            <service android:name="com.google.android.libraries.cast.companionlibrary.cast.reconnection.ReconnectionService"/>
         </config-file>
 
-        <source-file src="src/android/AbstractHookActivity.java" target-dir="src/org/apache/cordova/ooyala" />
-        <source-file src="src/android/BasicPlaybackVideoPlayerActivity.java" target-dir="src/org/apache/cordova/ooyala" />
+        <source-file src="src/android/players/ChromecastBarebonesPlayerActivity.java" target-dir="src/org/apache/cordova/ooyala/players" />
+        <source-file src="src/android/players/ChromecastPlayerActivity.java" target-dir="src/org/apache/cordova/ooyala/players" />
+        <source-file src="src/android/lists/ChromecastListActivity.java" target-dir="src/org/apache/cordova/ooyala/lists" />
+        <source-file src="src/android/utils/CastViewManager.java" target-dir="src/org/apache/cordova/ooyala/utils" />
+        <source-file src="src/android/utils/ChromecastPlayerSelectionOption.java" target-dir="src/org/apache/cordova/ooyala/utils" />
+        <source-file src="src/android/utils/SampleApplication.java" target-dir="src/org/apache/cordova/ooyala/utils" />
+        <source-file src="src/android/utils/UpdateImageViewRunnable.java" target-dir="src/org/apache/cordova/ooyala/utils" />
         <source-file src="src/android/Ooyala.java" target-dir="src/org/apache/cordova/ooyala" />
+
+        <source-file src="src/android/layout/cast_video_view.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/custom_notification.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/customized_ooyala_mini_controller.xml" target-dir="res/layout" />
         <source-file src="src/android/layout/list_activity_layout.xml" target-dir="res/layout" />
         <source-file src="src/android/layout/list_activity_list_item.xml" target-dir="res/layout" />
-        <source-file src="src/android/layout/player_double_button_layout.xml" target-dir="res/layout" />
-        <source-file src="src/android/layout/player_simple_layout.xml" target-dir="res/layout" />
-        <source-file src="src/android/layout/player_single_button_layout.xml" target-dir="res/layout" />
-        <source-file src="src/android/values/dimens.xml" target-dir="res/values" />
-        <source-file src="src/android/values-sw600dp/dimens.xml" target-dir="res/values-sw600dp" />
-        <source-file src="src/android/values-sw720dp-land/dimens.xml" target-dir="res/values-sw720dp-land" />
+        <source-file src="src/android/layout/main.xml" target-dir="res/layout" />
+        <source-file src="src/android/layout/start_view.xml" target-dir="res/layout" />
+
+        <source-file src="src/android/values/strings.xml" target-dir="res/values" />
+
+        <source-file src="src/android/drawable/ic_ooyala.png" target-dir="res/drawable" />
+        <source-file src="src/android/drawable/shadow7.9.png" target-dir="res/drawable" />
+
         <source-file src="src/android/OoyalaSDK.jar" target-dir="libs" />
+        <source-file src="src/android/OoyalaCastSDK.aar" target-dir="libs" />
+        <source-file src="src/android/CastCompanionLibrary" target-dir="./" />
+
 
         <js-module src="www/ooyala.js" name="ooyala">
             <clobbers target="ooyala" />
@@ -76,6 +130,7 @@
         <framework src="com.google.android.exoplayer:exoplayer:r1.5.9" />
         <framework src="com.android.support:support-v4:25.3.1" />
         <framework src="com.android.support:appcompat-v7:25.3.1" />
+        
       </platform>
     
 </plugin>
