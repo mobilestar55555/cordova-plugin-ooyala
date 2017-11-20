@@ -9,5 +9,4 @@ dependencies {
     compile 'com.google.android.exoplayer:exoplayer:r1.5.9'
     compile(name: 'OoyalaCastSDK', ext: 'aar')
     compile(name: 'OoyalaSDK')
-
 }
